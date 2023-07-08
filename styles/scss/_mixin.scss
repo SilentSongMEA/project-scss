@@ -16,6 +16,11 @@
         
     }
 }
+@mixin effectHover2{
+    &:hover{
+        box-shadow: 5px 5px 20px $hocolor,-5px -5px 20px $primaryColor;
+    }
+}
 @mixin media($size){
     @if($size == M){
         @media (max-width:768px) {
@@ -52,5 +57,6 @@
     background: $primaryColor;
     color:$textColor1;
     border-radius: 20px;
+    box-shadow: 5px 5px 20px $hocolor,-5px -5px 20px $bgcolor;
     justify-content: center;
 }

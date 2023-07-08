@@ -8,15 +8,17 @@
 body{
     background: $bgcolor;
 }
-header{ 
+header{  
+    position: sticky;
+    top: 0;
+  
    .header{
     display: flex;
     justify-content: space-between;
-    background: $primaryColor;
+    background: $primaryColor; 
+    backdrop-filter:blur(28px);
+     transition: all .15s ease;
     padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    backdrop-filter:blur(100px);
     h1{
     @include textSyle(2rem,bold,$textColor1);
          }
@@ -73,6 +75,7 @@ header{
     width: 100%;
     height: 90px;
     line-height: 90px;
+    @include effectHover2;
      
    @include boxStyle2;
    p{
@@ -116,17 +119,105 @@ header{
     background: $textColor1;
     border-radius: 20px;
     margin:2rem ;
+    
     box-shadow: 0 4px 4px 0 $textColor1;
 
     .icon-lang{
         padding: 1rem 2rem;
-        width: 50%;
-        height: 60%;
+        width: 40%;
+        height: 50%;
         border-radius: 50%;
         &:hover{
-            box-shadow: 4px 4px 30px 1px $textColor1,-4px -4px 30px 1px $primaryColor;
+            width: 50%;
+            height: 60%;
+            filter:drop-shadow(-10px -10px 10px  $bgcolor);
+            transition: all .15s ease-in;
         }
     }
+   }
+   .banner{
+   
+    @include bodystyle;
+    
+    img{
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 4px 4px 0 $textColor1;
+    }
+   }
+   .cards{
+    width: calc(100% - 6rem);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap:30px;
+    padding: 20px 0;
+   }
+   .card{
+    @include effectHover2;
+   
+    flex-direction: column;
+    @include bodystyle;
+    background: $textColor1;
+    
+    border-radius: 20px;
+    img{
+        width:100%;
+        border-radius: 20px 20px 0 0;
+    }
+    .content-card{
+        line-height: 1.5rem;
+        padding: 15px;
+      p{
+        @include textSyle(1rem,bold,$textColor2);
+        margin-bottom: 10px;
+      }
+      span{
+        @include textSyle(.9rem, bold,$primaryColor);
+      }
+    }
+   }
+   footer{
+    display: flex;
+    margin-top:30px ;
+    padding: 1rem 2rem;
+    background: $primaryColor;
+    .summary{
+        width: 50%;
+        @include textSyle(1rem,300,$textColor1);
+        text-align: justify;
+        margin-right: 5rem;
+    }
+    .links{
+        
+        ul{
+            list-style-type: none;
+        }
+        .link-ul{
+            text-decoration: none;
+            @include textSyle(1.1rem,bold,$textColor1);
+            @include effectHover;
+            display: inline-block;
+            margin-bottom: 3px;
+           
+
+        }
+    }
+   }
+   .tel{
+    width: 50px;
+    height: 40px;
+    position: fixed;
+    bottom: 5px;
+    left: 10px;
+    img{
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        @include effectHover2;
+    }
+    
    }
 /////////////////////////////////////////////
 
@@ -147,5 +238,22 @@ header{
         width: calc(100% - 6rem);
 
     }
+    }
+    .cards{
+        grid-template-columns:1fr;
+
+    }
+    footer{
+        flex-direction: column;
+        .summary{
+            width: 100%;
+            margin: 2rem 0 2rem 0;
+        }
+    
+    }
+}
+@include media(L){
+    .cards{
+        grid-template-columns: 1fr 1fr;
     }
 }
