@@ -1,0 +1,56 @@
+
+@mixin oversite{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+@mixin textSyle($size,$weigth,$color){
+    font-size: $size;
+    font-weight: $weigth;
+    color: $color;
+}
+@mixin effectHover{
+    &:hover{
+        color: $textColor2;
+        transition: all .15s ease-in;
+        
+    }
+}
+@mixin media($size){
+    @if($size == M){
+        @media (max-width:768px) {
+            @content;
+        }
+    }
+    @else if($size ==L){
+        @media (min-width:768px) and (max-width:1200px) {
+            @content;
+        }
+    }
+}
+@mixin bodystyle{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:1rem 2rem;
+ 
+}
+@mixin boxStyle{
+    background: $textColor1;
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    margin-top: 30px;
+    height:500px;
+    box-shadow: 0 4px 4px 0 $textColor1;
+    justify-content: center;
+    text-align: center;
+  
+}
+@mixin boxStyle2{
+    margin: 20px 10px;
+    text-align: center;
+    background: $primaryColor;
+    color:$textColor1;
+    border-radius: 20px;
+    justify-content: center;
+}
